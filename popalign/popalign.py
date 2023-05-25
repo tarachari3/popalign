@@ -978,8 +978,8 @@ def reconstruction_errors(pop, M_norm, q):
 		Hj = np.vstack(Hj) # Hj is projected data onto Wj
 		projs.append(Hj) # store projection
 		Dj = Wj.dot(Hj.T) # compute reconstructed data: Dj = Wj.Hj\
-		curr_error = mean_squared_error(D, Dj)
-		errors.append(mean_squared_error(D, Dj)) # compute mean squared error between original data D and reconstructed data Dj
+		curr_error = mean_squared_error(np.asarray(D), np.asarray(Dj))
+		errors.append(mean_squared_error(np.asarray(D), np.asarray(Dj))) # compute mean squared error between original data D and reconstructed data Dj
 	return errors, projs
 
 def split_proj(pop, proj):
